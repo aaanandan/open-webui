@@ -1,0 +1,32 @@
+1) I building a AI agent that will work offline completely. 
+2)This is going to be a financial /Accounting AI agent, 
+so Accuracy is prime importance in RAG and other AI conversattion. 
+3)I'm working a accounting module which will integrate to existing  Accounting 
+and erp system and have queryable API end points so that it can be used as tool 
+for querying accurate information on accounts. 4)  the RAG should work flawlessly, 
+
+any document type and image any video audo information should be indexed properly and 
+queried properly with high accuracy, the RAG system should not 
+in RAG and other AI conversattion. 
+
+3)I'm working a accounting module which will integrate to existing Accounting and erp system and have queryable API end points so that it can be used as tool for querying accurate information on accounts. 4)  the RAG should work flawlessly , any document type and image any video audio information should be indexed properly and queried properly with high accuracy, the RAG system should not miss any word  that is indexed. 
+
+
+ownloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate open-webui
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Instructions to build and install and start on windows
+Build.bat
+Install.bat
+start_openwebui.bat
