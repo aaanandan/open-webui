@@ -8,6 +8,18 @@ services:
     restart: unless-stopped
     image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
 
+  tika:
+    image: apache/tika
+    container_name: tika
+    ports:
+      - "9998:9998"
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    volumes:
+      - tika_data:/var/local/tika
+
+
   open-webui:
     build:
       context: .
@@ -20,11 +32,13 @@ services:
       - open-webui:/app/backend/data
     depends_on:
       - ollama
+      - tika
     ports:
       - ${OPEN_WEBUI_PORT-3000}:8080
     environment:
       - 'OLLAMA_BASE_URL=http://ollama:11434'
       - 'WEBUI_SECRET_KEY='
+      - 'TIKA_SERVER_URL=http://tika:9998'
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
@@ -32,3 +46,5 @@ services:
 volumes:
   ollama: {}
   open-webui: {}
+  tika_data: {}
+  pipelines: {}

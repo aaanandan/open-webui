@@ -161,7 +161,7 @@ Encountering connection issues? Our [Open WebUI Documentation](https://docs.open
 
 #### Open WebUI: Server Connection Error
 
-If you're experiencing connection issues, it’s often due to the WebUI docker container not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container . Use the `--network=host` flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: `http://localhost:8080`.
+If you're experiencing connection issues, it's often due to the WebUI docker container not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container. Use the `--network=host` flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: `http://localhost:8080`.
 
 **Example Docker Command**:
 
@@ -226,3 +226,86 @@ If you have any questions, suggestions, or need assistance, please open an issue
 ---
 
 Created by [Timothy Jaeryang Baek](https://github.com/tjbck) - Let's make Open WebUI even more amazing together! 💪
+
+# Pipeline Service Installation
+
+This repository contains scripts to convert the Docker-based pipeline service to a local installation.
+
+## Prerequisites
+
+- Windows 10 or later
+- Python 3.11 or later
+- pip (Python package installer)
+- Administrator privileges (for installing system packages)
+
+## Installation
+
+1. Clone this repository or download the installation script
+2. Open a command prompt with administrator privileges
+3. Navigate to the repository directory
+4. Run the installation script:
+   ```batch
+   install.bat
+   ```
+
+The script will:
+- Check system requirements
+- Create a Python virtual environment
+- Install required Python packages
+- Create necessary directories
+- Set up configuration files
+- Create startup scripts
+
+## Directory Structure
+
+After installation, you'll have the following structure:
+```
+.
+├── venv/                  # Python virtual environment
+├── data/                  # Data directory
+│   ├── pipelines/        # Pipeline files
+│   └── cache/           # Cache directory
+├── config.py            # Configuration file
+├── main.py              # Main application file
+├── start.bat            # Windows startup script
+└── install.bat          # Installation script
+```
+
+## Starting the Service
+
+To start the pipeline service:
+```batch
+start.bat
+```
+
+The service will be available at `http://localhost:9099`
+
+## Health Check
+
+You can check if the service is running by visiting:
+```
+http://localhost:9099/health
+```
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. Make sure Python and pip are installed correctly
+2. Check if all required system packages are installed
+3. Verify that the virtual environment is activated
+4. Check the logs for any error messages
+
+## Requirements
+
+The following Python packages will be installed:
+- fastapi
+- uvicorn
+- detoxify
+- transformers
+- torch
+- opencv-python-headless
+
+## Support
+
+For issues or questions, please open an issue in the repository.
